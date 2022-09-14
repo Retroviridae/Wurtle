@@ -1,1 +1,6 @@
-enum AnswerStage { correct, contains, incorrect, notAnswered }
+enum AnswerStage {
+  correct,
+  contains,
+  incorrect,
+  notAnswered,
+}

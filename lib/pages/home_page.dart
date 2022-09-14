@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-
 import '../components/game_grid.dart';
+import '../components/keyboard_row.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({Key? key}) : super(key: key);
@@ -26,7 +26,6 @@ class _HomePageState extends State<HomePage> {
               Expanded(
                 flex: 7,
                 child: Container(
-                  // margin: const EdgeInsets.all(10), //Adds a white border to the yellow game area
                   color: Colors.yellow,
                   child: const GameGrid(),
                 ),
@@ -35,6 +34,11 @@ class _HomePageState extends State<HomePage> {
                 flex: 4,
                 child: Container(
                   color: Colors.green,
+                  child: Column(children: const [
+                    KeyBoardRow(min: 1, max: 10),
+                    KeyBoardRow(min: 11, max: 19),
+                    KeyBoardRow(min: 20, max: 29),
+                  ]),
                 ),
               ),
             ],

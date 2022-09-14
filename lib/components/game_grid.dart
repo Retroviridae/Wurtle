@@ -14,7 +14,7 @@ class GameGrid extends StatelessWidget {
         gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
           crossAxisCount: 5,
           crossAxisSpacing: 4,
-          mainAxisExtent: 80,
+          mainAxisExtent: 85,
           mainAxisSpacing: 4,
         ),
         itemBuilder: (context, index) {

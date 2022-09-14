@@ -1,6 +1,7 @@
 import 'package:wurtle/constants/answer_stages.dart';
 
 Map<String, AnswerStage> keysMap = {
+  // First row
   'Q': AnswerStage.notAnswered,
   'W': AnswerStage.notAnswered,
   'E': AnswerStage.notAnswered,
@@ -11,6 +12,7 @@ Map<String, AnswerStage> keysMap = {
   'I': AnswerStage.notAnswered,
   'O': AnswerStage.notAnswered,
   'P': AnswerStage.notAnswered,
+  // Second row
   'A': AnswerStage.notAnswered,
   'S': AnswerStage.notAnswered,
   'D': AnswerStage.notAnswered,
@@ -20,6 +22,8 @@ Map<String, AnswerStage> keysMap = {
   'J': AnswerStage.notAnswered,
   'K': AnswerStage.notAnswered,
   'L': AnswerStage.notAnswered,
+  // Third row
+  'ENTER': AnswerStage.notAnswered,
   'Z': AnswerStage.notAnswered,
   'X': AnswerStage.notAnswered,
   'C': AnswerStage.notAnswered,
@@ -27,6 +31,5 @@ Map<String, AnswerStage> keysMap = {
   'B': AnswerStage.notAnswered,
   'N': AnswerStage.notAnswered,
   'M': AnswerStage.notAnswered,
-  'ENTER': AnswerStage.notAnswered,
   'BACK': AnswerStage.notAnswered,
 };
