@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'components/home_page.dart';
+import 'pages/home_page.dart';
 
 void main() {
   runApp(const MyApp());
@@ -19,16 +19,22 @@ class MyApp extends StatelessWidget {
   }
 }
 
-class AboutScreen extends StatelessWidget {
-  const AboutScreen({Key? key}) : super(key: key);
 
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(),
-    );
-  }
-}
+
+
+
+
+
+// class AboutScreen extends StatelessWidget {
+//   const AboutScreen({Key? key}) : super(key: key);
+
+//   @override
+//   Widget build(BuildContext context) {
+//     return Scaffold(
+//       appBar: AppBar(),
+//     );
+//   }
+// }
 
 // class MyApp extends StatefulWidget {
 //   const MyApp({Key? key}) : super(key: key);
