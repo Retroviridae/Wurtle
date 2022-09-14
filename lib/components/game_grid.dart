@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import 'tile.dart';
+
 class GameGrid extends StatelessWidget {
   const GameGrid({
     Key? key,
@@ -20,7 +22,7 @@ class GameGrid extends StatelessWidget {
         itemBuilder: (context, index) {
           return Container(
             decoration: BoxDecoration(border: Border.all()),
-            child: Center(child: Text(index.toString())),
+            child: Tile(index: index),
           );
         });
   }
