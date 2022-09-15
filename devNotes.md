@@ -9,3 +9,14 @@ Making good progress now. There's so many dang widgets man. I would've never kno
 9/14/22 More aspect ratio problems: So the next problem the tutorial runs me into is the sizing for the keyboard. He has it based off the dimensions of the screen you're on. This is fine for when you are in portrait, but when you switch to landscape the width of the rows overflows. So I made the width constant like the aspect ratio. This is only a problem because of how I set the aspect ratio and because I want it to work on all ascpect ratios. I left the height to be able to change based on screen size, but I don't think the height changing is as common. I check and changing the height does kinda break it, but I don't care. It shouldn't happen. I tried to fix it with box constraints but none quite worked for me. I'm just gonna build it to work for portrait and landscape, not everything. 
 
 Fixed the problem I had earlier today. He used a component called Fittedbox, which has a fit property called BoxFit.contain. He used it on the letters within the grid, and I used it on the keyboard rows to keep them from overflowing. 
+
+9/15/22: Strange problem with the colors on the game board not acting as expected. I found the github and everything I had written looked exactly the same but was behaving differently from his version. I copied his version and it started working, no idea what was different though despite comparing for a long time. 
+
+Flutter has crazy good error catching. In controller.dart I had this written             
+final resultKey = keysMap.entries.where((element) =>
+                element.key == tilesEntered[j + (currentRow * 5)]);
+Which threw the error "Equality operator `==` invocation with references of unrelated types." I didn't know what this meant but I looked back at the example and noticed I omitted a .letter at the end of tilesEntered. This got me onto the same page as the tutorial and I would have never caught it without that erro message. 
+final resultKey = keysMap.entries.where((element) =>
+                element.key == tilesEntered[j + (currentRow * 5)].letter);
+
+                
