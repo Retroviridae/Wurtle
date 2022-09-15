@@ -30,11 +30,17 @@ class KeyBoardRow extends StatelessWidget {
             children: keysMap.entries.map((e) {
               index++;
               if (index >= min && index <= max) {
-                Color color = Colors.grey;
+                Color color = Theme.of(context).primaryColorLight;
+                Color keyColor = Colors.white;
                 if (e.value == AnswerStage.correct) {
                   color = correctGreen;
                 } else if (e.value == AnswerStage.contains) {
                   color = containsYellow;
+                } else if (e.value == AnswerStage.incorrect) {
+                  color = Theme.of(context).primaryColorDark;
+                } else {
+                  keyColor = Theme.of(context).textTheme.bodyText2?.color ??
+                      Colors.black;
                 }
                 return Padding(
                   padding: const EdgeInsets.all(1),
@@ -51,7 +57,15 @@ class KeyBoardRow extends StatelessWidget {
                                 .setKeyTapped(value: e.key);
                           },
                           child: Center(
-                            child: Text(e.key),
+                            child: Text(
+                              e.key,
+                              style: Theme.of(context)
+                                  .textTheme
+                                  .bodyText2
+                                  ?.copyWith(
+                                    color: keyColor,
+                                  ),
+                            ),
                           ),
                         ),
                       ),

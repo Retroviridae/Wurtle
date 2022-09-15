@@ -40,23 +40,21 @@ class _HomePageState extends State<HomePage> {
           aspectRatio: 9 / 16,
           child: Column(
             children: [
-              Expanded(
+              const Divider(
+                thickness: 2,
+                height: 1,
+              ),
+              const Expanded(
                 flex: 7,
-                child: Container(
-                  color: Colors.blue,
-                  child: const GameGrid(),
-                ),
+                child: GameGrid(),
               ),
               Expanded(
                 flex: 4,
-                child: Container(
-                  color: Colors.green,
-                  child: Column(children: const [
-                    KeyBoardRow(min: 1, max: 10),
-                    KeyBoardRow(min: 11, max: 19),
-                    KeyBoardRow(min: 20, max: 29),
-                  ]),
-                ),
+                child: Column(children: const [
+                  KeyBoardRow(min: 1, max: 10),
+                  KeyBoardRow(min: 11, max: 19),
+                  KeyBoardRow(min: 20, max: 29),
+                ]),
               ),
             ],
           ),
