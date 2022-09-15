@@ -1,5 +1,4 @@
 import 'dart:math';
-
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import '../components/game_grid.dart';
@@ -16,9 +15,9 @@ class HomePage extends StatefulWidget {
 
 class _HomePageState extends State<HomePage> {
   late String _word;
+
   @override
   void initState() {
-    // TODO: implement initState
     final r = Random().nextInt(words.length);
     _word = words[r];
     WidgetsBinding.instance.addPostFrameCallback((timeStamp) {
@@ -44,7 +43,7 @@ class _HomePageState extends State<HomePage> {
               Expanded(
                 flex: 7,
                 child: Container(
-                  color: Colors.yellow,
+                  color: Colors.blue,
                   child: const GameGrid(),
                 ),
               ),
