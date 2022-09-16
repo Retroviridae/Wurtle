@@ -1,7 +1,8 @@
 import 'dart:math';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:wurtle/providers/theme_provider.dart';
+import 'package:wurtle/pages/settings.dart';
+// import 'package:wurtle/providers/theme_provider.dart';
 import '../components/game_grid.dart';
 import '../components/keyboard_row.dart';
 import '../constants/words.dart';
@@ -38,7 +39,8 @@ class _HomePageState extends State<HomePage> {
         actions: [
           IconButton(
             onPressed: () {
-              Provider.of<ThemeProvider>(context, listen: false).setTheme();
+              Navigator.of(context).push(
+                  MaterialPageRoute(builder: (context) => const Settings()));
             },
             icon: const Icon(
               Icons.settings,
