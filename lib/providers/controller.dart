@@ -7,6 +7,7 @@ class Controller extends ChangeNotifier {
   String correctWord = "";
   int currentTile = 0, currentRow = 0;
   List<TileModel> tilesEntered = [];
+  bool checkLine = false;
 
   setCorrectWord({required String word}) => correctWord = word;
 
@@ -92,5 +93,6 @@ class Controller extends ChangeNotifier {
     }
     currentRow++;
     notifyListeners();
+    checkLine = true;
   }
 }

@@ -56,21 +56,27 @@ class _TileState extends State<Tile> with SingleTickerProviderStateMixin {
       if (widget.index < notifier.tilesEntered.length) {
         text = notifier.tilesEntered[widget.index].letter;
         _answerStage = notifier.tilesEntered[widget.index].answerStage;
-        _animationController.forward();
-        _backgroundColor = Theme.of(context).primaryColorLight;
-        if (_answerStage == AnswerStage.correct) {
-          _borderColor = Colors.transparent;
-          _backgroundColor = correctGreen;
-        } else if (_answerStage == AnswerStage.contains) {
-          _borderColor = Colors.transparent;
-          _backgroundColor = containsYellow;
-        } else if (_answerStage == AnswerStage.incorrect) {
-          _borderColor = Colors.transparent;
-          _backgroundColor = Theme.of(context).primaryColorDark;
-        } else {
-          fontColor =
-              Theme.of(context).textTheme.bodyText2?.color ?? Colors.white;
-          _backgroundColor = Colors.transparent;
+
+        if (notifier.checkLine) {
+          Future.delayed(
+            Duration(milliseconds: 300 * (widget.index % 5)),
+            () {
+              _animationController.forward();
+              notifier.checkLine = false;
+            },
+          );
+          _backgroundColor = Theme.of(context).primaryColorLight;
+          if (_answerStage == AnswerStage.correct) {
+            _backgroundColor = correctGreen;
+          } else if (_answerStage == AnswerStage.contains) {
+            _backgroundColor = containsYellow;
+          } else if (_answerStage == AnswerStage.incorrect) {
+            _backgroundColor = Theme.of(context).primaryColorDark;
+          } else {
+            fontColor =
+                Theme.of(context).textTheme.bodyText2?.color ?? Colors.white;
+            _backgroundColor = Colors.transparent;
+          }
         }
 
         return AnimatedBuilder(
@@ -88,7 +94,7 @@ class _TileState extends State<Tile> with SingleTickerProviderStateMixin {
                 ..rotateX(flip),
               child: Container(
                 decoration: BoxDecoration(
-                  color: _backgroundColor,
+                  color: flip > 0 ? _backgroundColor : Colors.transparent,
                   border: Border.all(
                     color: _borderColor,
                   ),
@@ -97,10 +103,12 @@ class _TileState extends State<Tile> with SingleTickerProviderStateMixin {
                   fit: BoxFit.contain,
                   child: Padding(
                     padding: const EdgeInsets.all(6.0),
-                    child: Text(
-                      text,
-                      style: const TextStyle().copyWith(color: fontColor),
-                    ),
+                    child: flip > 0
+                        ? Text(
+                            text,
+                            style: const TextStyle().copyWith(color: fontColor),
+                          )
+                        : Text(text),
                   ),
                 ),
               ),

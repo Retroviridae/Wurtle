@@ -20,3 +20,5 @@ final resultKey = keysMap.entries.where((element) =>
                 element.key == tilesEntered[j + (currentRow * 5)].letter);
 
 Having some trouble with init state. I think I understand what it does but I don't understand why it is misbehaving. I made sure to follow the instructions to the letter but it didn't behave the same. I think it would only initstate when I pressed a button, instead of at build time. Not sure why this is happening or how to fix it. Well I might have fixed it by updating the state in the build but not sure if that will cause issues going forward. 
+
+9/16/22 Animation: Started part 16 today and he started adding animation with the Animation Controller. I definitely don't fully understand how this widget works. I guess not super important because I don't expect I'll need many animations. 
