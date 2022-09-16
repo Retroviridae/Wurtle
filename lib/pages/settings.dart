@@ -3,15 +3,8 @@ import 'package:provider/provider.dart';
 import 'package:wurtle/providers/theme_provider.dart';
 import 'package:wurtle/themes/theme_preferences.dart';
 
-class Settings extends StatefulWidget {
+class Settings extends StatelessWidget {
   const Settings({Key? key}) : super(key: key);
-
-  @override
-  State<Settings> createState() => _SettingsState();
-}
-
-class _SettingsState extends State<Settings> {
-  bool _isSwitched = false;
 
   @override
   Widget build(BuildContext context) {
@@ -30,16 +23,21 @@ class _SettingsState extends State<Settings> {
       ),
       body: Column(
         children: [
-          SwitchListTile(
-              value: _isSwitched,
-              onChanged: (value) {
-                setState(() {
-                  _isSwitched = value;
-                });
-                ThemePreferences.saveTheme(isDark: _isSwitched);
-                Provider.of<ThemeProvider>(context, listen: false)
-                    .setTheme(turnOn: _isSwitched);
-              })
+          Consumer<ThemeProvider>(
+            builder: (_, notifier, __) {
+              bool isSwitched = false;
+              isSwitched = notifier.isDark;
+              return SwitchListTile(
+                value: isSwitched,
+                onChanged: (value) {
+                  isSwitched = value;
+                  ThemePreferences.saveTheme(isDark: isSwitched);
+                  Provider.of<ThemeProvider>(context, listen: false)
+                      .setTheme(turnOn: isSwitched);
+                },
+              );
+            },
+          )
         ],
       ),
     );
