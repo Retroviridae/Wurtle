@@ -54,6 +54,7 @@ class _TileState extends State<Tile> {
         } else {
           fontColor =
               Theme.of(context).textTheme.bodyText2?.color ?? Colors.white;
+          _backgroundColor = Colors.transparent;
         }
 
         return Container(

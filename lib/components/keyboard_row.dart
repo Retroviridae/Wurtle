@@ -57,15 +57,17 @@ class KeyBoardRow extends StatelessWidget {
                                 .setKeyTapped(value: e.key);
                           },
                           child: Center(
-                            child: Text(
-                              e.key,
-                              style: Theme.of(context)
-                                  .textTheme
-                                  .bodyText2
-                                  ?.copyWith(
-                                    color: keyColor,
+                            child: e.key == 'BACK'
+                                ? const Icon(Icons.backspace_outlined)
+                                : Text(
+                                    e.key,
+                                    style: Theme.of(context)
+                                        .textTheme
+                                        .bodyText2
+                                        ?.copyWith(
+                                          color: keyColor,
+                                        ),
                                   ),
-                            ),
                           ),
                         ),
                       ),
