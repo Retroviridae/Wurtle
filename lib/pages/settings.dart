@@ -28,6 +28,7 @@ class Settings extends StatelessWidget {
               bool isSwitched = false;
               isSwitched = notifier.isDark;
               return SwitchListTile(
+                title: const Text('Toggle Dark Mode'),
                 value: isSwitched,
                 onChanged: (value) {
                   isSwitched = value;
