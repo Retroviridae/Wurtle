@@ -7,26 +7,28 @@ class Controller extends ChangeNotifier {
   String correctWord = "";
   int currentTile = 0, currentRow = 0;
   List<TileModel> tilesEntered = [];
-  bool checkLine = false;
+  bool checkLine = false, isBackorEnter = false;
 
   setCorrectWord({required String word}) => correctWord = word;
 
   setKeyTapped({required String value}) {
     if (value == 'ENTER') {
       if (currentTile == 5 * (currentRow + 1)) {
+        isBackorEnter = true;
         checkWord();
-        // print('check word');
       }
     } else if (value == 'BACK') {
       if (currentTile > 5 * (currentRow + 1) - 5) {
         currentTile--;
         tilesEntered.removeLast();
+        isBackorEnter = true;
       }
     } else {
       if (currentTile < 5 * (currentRow + 1)) {
         tilesEntered.add(
             TileModel(letter: value, answerStage: AnswerStage.notAnswered));
         currentTile++;
+        isBackorEnter = false;
       }
     }
     notifyListeners();
