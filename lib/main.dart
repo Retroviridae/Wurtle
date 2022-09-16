@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-// import 'package:wurtle/pages/settings.dart';
 import 'package:wurtle/providers/controller.dart';
 import 'package:wurtle/providers/theme_provider.dart';
 import 'package:wurtle/themes/themes.dart';

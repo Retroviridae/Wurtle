@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:wurtle/providers/theme_provider.dart';
+import 'package:wurtle/themes/theme_preferences.dart';
 
 class Settings extends StatefulWidget {
   const Settings({Key? key}) : super(key: key);
@@ -35,6 +36,7 @@ class _SettingsState extends State<Settings> {
                 setState(() {
                   _isSwitched = value;
                 });
+                ThemePreferences.saveTheme(isDark: _isSwitched);
                 Provider.of<ThemeProvider>(context, listen: false)
                     .setTheme(turnOn: _isSwitched);
               })
