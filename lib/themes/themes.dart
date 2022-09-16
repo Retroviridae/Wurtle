@@ -5,6 +5,9 @@ final ThemeData lightTheme = ThemeData(
   primaryColorLight: lightThemeLightShade,
   primaryColorDark: lightThemeDarkShade,
   appBarTheme: const AppBarTheme(
+    iconTheme: IconThemeData(
+      color: Colors.black,
+    ),
     backgroundColor: Colors.white,
     titleTextStyle: TextStyle(
       color: Colors.black,
@@ -25,6 +28,9 @@ final ThemeData darkTheme = ThemeData(
   primaryColorLight: darkThemeLightShade,
   primaryColorDark: darkThemeDarkShade,
   appBarTheme: const AppBarTheme(
+    iconTheme: IconThemeData(
+      color: Colors.white,
+    ),
     backgroundColor: Colors.black,
     titleTextStyle: TextStyle(
       color: Colors.white,

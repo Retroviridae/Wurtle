@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:wurtle/constants/answer_stages.dart';
 import 'package:wurtle/constants/colors.dart';
-import 'package:wurtle/controller.dart';
+import 'package:wurtle/providers/controller.dart';
 import 'package:wurtle/data/keys_map.dart';
 
 class KeyBoardRow extends StatelessWidget {

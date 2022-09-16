@@ -1,10 +1,11 @@
 import 'dart:math';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:wurtle/providers/theme_provider.dart';
 import '../components/game_grid.dart';
 import '../components/keyboard_row.dart';
 import '../constants/words.dart';
-import '../controller.dart';
+import '../providers/controller.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({Key? key}) : super(key: key);
@@ -34,6 +35,16 @@ class _HomePageState extends State<HomePage> {
         title: const Text('Wurtle'),
         centerTitle: true,
         elevation: 0,
+        actions: [
+          IconButton(
+            onPressed: () {
+              Provider.of<ThemeProvider>(context, listen: false).setTheme();
+            },
+            icon: const Icon(
+              Icons.settings,
+            ),
+          ),
+        ],
       ),
       body: Center(
         child: AspectRatio(

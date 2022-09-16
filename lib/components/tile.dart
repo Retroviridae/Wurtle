@@ -3,7 +3,7 @@ import 'package:provider/provider.dart';
 import 'package:wurtle/constants/answer_stages.dart';
 import 'package:wurtle/constants/colors.dart';
 
-import '../controller.dart';
+import '../providers/controller.dart';
 
 class Tile extends StatefulWidget {
   const Tile({
